@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "moduleResolution": "node",
+    "paths": {
+      "@api/*": ["./src/api/*"],
+      "@components/*": ["./src/components/*"],
+      "@constants/*": ["./src/constants/*"],
+      "@helpers/*": ["./src/helpers/*"],
+      "@hocs/*": ["./src/hocs/*"],
+      "@hooks/*": ["./src/hooks/*"],
+      "@modals/*": ["./src/modals/*"],
+      "@modules/*": ["./src/modules/*"],
+      "@router/*": ["./src/router/*"],
+      "@services/*": ["./src/services/*"],
+      "@stitches/*": ["./src/stitches/*"],
+      "@store/*": ["./src/store/*"],
+      "@typings/*": ["./src/typings/*"],
+      "@test/*": ["./src/test/*"],
+      "@i18n": ["./src/i18n"]
+    }
+  }
+}
