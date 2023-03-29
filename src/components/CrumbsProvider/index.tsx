@@ -1,7 +1,9 @@
 import React, { useEffect } from 'react';
 
-import { darkTheme } from '../../theme/dark';
-import { lightTheme } from '../../theme/light';
+import { ThemeContext } from '@theme/contexts';
+import { darkTheme } from '@theme/dark';
+import { lightTheme } from '@theme/light';
+
 import '../resetCss';
 
 interface ICrumbsProviderProps {
@@ -21,7 +23,7 @@ const CrumbsProvider: React.FC<ICrumbsProviderProps> = ({ theme, children }) => 
     }
   }, [theme]);
 
-  return <>{children}</>;
+  return <ThemeContext.Provider value={{ theme: 'some_theme' }}>{children}</ThemeContext.Provider>;
 };
 
 export default CrumbsProvider;

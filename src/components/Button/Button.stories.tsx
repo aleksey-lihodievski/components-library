@@ -1,3 +1,4 @@
+// import { PressEvent } from '@react-types/shared';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
@@ -6,7 +7,12 @@ import Button from './Button';
 export default {
   title: 'Button',
   component: Button,
-  // args: { onPress: () => console.log('Button pressed!') },
+
+  // args: {
+  //   onPress: (e: PressEvent) => {
+  //     console.log('Button pressed!');
+  //   },
+  // },
 
   argTypes: {
     color: {

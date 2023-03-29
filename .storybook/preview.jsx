@@ -1,9 +1,7 @@
-// const { default: CrumbsProvider } = await import('../src/components/CrumbsProvider');
-// const { lightTheme } = await import('../src/theme/light');
-// const { lightVars } = await import('../src/theme');
-import React from 'react';
 import { withThemes } from 'storybook-addon-themes/react';
+import { withReactContext } from 'storybook-react-context';
 
+// import CrumbsProvider from '../src/components/CrumbsProvider';
 import CrumbsProvider from '../src/components/CrumbsProvider';
 import { darkTheme } from '../src/theme/dark';
 import { lightTheme } from '../src/theme/light';
@@ -36,4 +34,5 @@ export const decorators = [
     </CrumbsProvider>
   ),
   withThemes,
+  withReactContext,
 ];

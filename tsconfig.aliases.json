@@ -1,25 +1,25 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "moduleResolution": "node",
     "paths": {
-      "@*": ["./src/*"],
-      "@api/*": ["./src/api/*"],
-      "@components/*": ["./src/components/*"],
-      "@constants/*": ["./src/constants/*"],
-      "@helpers/*": ["./src/helpers/*"],
-      "@hocs/*": ["./src/hocs/*"],
-      "@hooks/*": ["./src/hooks/*"],
-      "@modals/*": ["./src/modals/*"],
-      "@modules/*": ["./src/modules/*"],
-      "@router/*": ["./src/router/*"],
-      "@services/*": ["./src/services/*"],
-      "@stitches/*": ["./src/stitches/*"],
-      "@store/*": ["./src/store/*"],
-      "@theme/*": ["./src/theme/*"],
-      "@typings/*": ["./src/typings/*"],
-      "@test/*": ["./src/test/*"],
-      "@i18n/*": ["./src/i18n"]
+      // "@*": ["./*"],
+      "@api/*": ["./api/*"],
+      "@components/*": ["./components/*"],
+      "@constants/*": ["./constants/*"],
+      "@helpers/*": ["./helpers/*"],
+      "@hocs/*": ["./hocs/*"],
+      "@hooks/*": ["./hooks/*"],
+      "@modals/*": ["./modals/*"],
+      "@modules/*": ["./modules/*"],
+      "@router/*": ["./router/*"],
+      "@services/*": ["./services/*"],
+      "@stitches/*": ["./stitches/*"],
+      "@store/*": ["./store/*"],
+      "@theme/*": ["theme/*"],
+      "@typings/*": ["./typings/*"],
+      "@test/*": ["./test/*"],
+      "@i18n/*": ["./i18n"]
     }
   }
 }
