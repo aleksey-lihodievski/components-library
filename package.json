@@ -1,32 +1,38 @@
 {
-  "name": "chocolate-strew",
+  "name": "chocolate-crumbs",
   "private": false,
   "version": "0.0.0",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "lint-staged": "lint-staged",
     "start": "vite",
     "build": "tsc && vite build",
     "preview": "vite preview",
-    "lint": "tsc --noEmit && eslint src/**/*.ts{,x}",
+    "lint": "eslint 'src/**/*.{js,jsx,ts,tsx}'",
+    "lint:fix": "eslint --fix 'src/**/*.{jsx,ts,tsx}'",
     "prettier": "prettier ./src",
-    "prettier:write": "prettier --write .",
+    "format": "prettier --write src/**/*.{ts,tsx,css} --config ./.prettierrc.json",
     "prepare": "husky install",
     "test": "vitest",
     "coverage": "vitest run --coverage",
     "storybook": "start-storybook -p 6006",
-    "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "prepack": "json -f package.json -I -e \"delete this.devDependencies; delete this.dependencies\""
   },
   "peerDependencies": {
+    "framer-motion": "^10.9.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
     "@babel/core": "^7.21.0",
     "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-docs": "^6.5.16",
     "@storybook/addon-essentials": "^6.5.16",
     "@storybook/addon-interactions": "^6.5.16",
     "@storybook/addon-links": "^6.5.16",
+    "@storybook/addon-styling": "^0.3.2",
     "@storybook/builder-vite": "^0.4.2",
     "@storybook/cli": "^6.5.16",
     "@storybook/react": "^6.5.16",
@@ -38,9 +44,11 @@
     "@types/react-dom": "^18.0.10",
     "@typescript-eslint/eslint-plugin": "^5.54.1",
     "@typescript-eslint/parser": "^5.54.1",
+    "@vanilla-extract/vite-plugin": "^3.8.0",
     "@vitejs/plugin-react": "^3.1.0",
     "@vitest/coverage-c8": "^0.29.2",
     "babel-loader": "^8.3.0",
+    "classnames": "^2.3.2",
     "eslint": "^8.35.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-config-airbnb-typescript": "^17.0.0",
@@ -51,16 +59,39 @@
     "eslint-plugin-react": "^7.32.2",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-storybook": "^0.6.11",
+    "framer-motion": "^10.9.1",
     "husky": "^8.0.0",
     "jsdom": "^21.1.0",
     "lint-staged": "^13.1.2",
     "prettier": "^2.8.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "storybook-addon-themes": "^6.1.0",
+    "storybook-dark-mode": "^2.1.1",
     "typescript": "^4.9.3",
     "vite": "^4.1.0",
+    "vite-plugin-dts": "^2.1.0",
     "vite-tsconfig-paths": "^4.0.5",
     "vitest": "^0.29.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "@ctrl/tinycolor": "^3.6.0",
+    "@vanilla-extract/css": "^1.11.0",
+    "@vanilla-extract/dynamic": "^2.0.3",
+    "@vanilla-extract/sprinkles": "^1.5.2",
+    "react-aria": "^3.23.1",
+    "react-icons": "^4.8.0"
+  },
+  "type": "module",
+  "files": [
+    "dist"
+  ],
+  "main": "./dist/chocolade-crumbs.cjs",
+  "module": "./dist/chocolade-crumbs.js",
+  "exports": {
+    ".": {
+      "import": "./dist/chocolate-crumbs.es.js",
+      "require": "./dist/chocolate-crumbs.umd.cjs"
+    }
+  }
 }

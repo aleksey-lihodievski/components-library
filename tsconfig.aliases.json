@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "moduleResolution": "node",
     "paths": {
+      "@*": ["./src/*"],
       "@api/*": ["./src/api/*"],
       "@components/*": ["./src/components/*"],
       "@constants/*": ["./src/constants/*"],
@@ -15,9 +16,10 @@
       "@services/*": ["./src/services/*"],
       "@stitches/*": ["./src/stitches/*"],
       "@store/*": ["./src/store/*"],
+      "@theme/*": ["./src/theme/*"],
       "@typings/*": ["./src/typings/*"],
       "@test/*": ["./src/test/*"],
-      "@i18n": ["./src/i18n"]
+      "@i18n/*": ["./src/i18n"]
     }
   }
 }

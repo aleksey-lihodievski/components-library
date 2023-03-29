@@ -1,4 +1,4 @@
-module.exports = {
-  '*.ts?(x)': ['eslint --cache --fix', () => 'tsc -p tsconfig.json --noEmit'],
-  '*': 'prettier --ignore-unknown --write',
+export default {
+  '*.{ts,tsx}': ['yarn lint:fix', () => 'tsc -p tsconfig.json --noEmit'],
+  '*.{ts,tsx,html,css}': 'yarn format',
 };

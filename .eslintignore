@@ -4,3 +4,4 @@ vite.config.ts
 .eslintcache
 next.config.js
 !.storybook
+/.storybook
