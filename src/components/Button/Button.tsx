@@ -4,8 +4,6 @@ import React, { useRef } from 'react';
 import { AriaButtonProps, useButton } from 'react-aria';
 import { FiLoader } from 'react-icons/fi';
 
-import { ThemeContext } from '@theme/contexts';
-
 import {
   buttonBase,
   buttonColor,
@@ -27,7 +25,7 @@ interface ButtonProps extends AriaButtonProps {
   color?: 'default' | 'primary' | 'secondary' | 'danger' | 'warning';
   size?: 'small' | 'medium' | 'large';
   isLoading?: boolean;
-  children: string;
+  children: React.ReactNode;
   style?: React.CSSProperties;
 }
 
@@ -49,26 +47,22 @@ const Button: React.FC<ButtonProps> = ({
   });
 
   return (
-    <ThemeContext.Consumer>
-      {({ theme }) => (
-        <button ref={buttonRef} {...buttonProps} className={className} style={style}>
-          <AnimatePresence mode="wait">
-            {isLoading ? (
-              <React.Fragment key="loading">
-                <motion.span {...transitions} className={spinnerWrapper}>
-                  <FiLoader className={spinner} />
-                </motion.span>
-                <span className={spaceKeeper}>{children}</span>
-              </React.Fragment>
-            ) : (
-              <motion.span key="content" {...transitions}>
-                {children.concat(' ', theme)}
-              </motion.span>
-            )}
-          </AnimatePresence>
-        </button>
-      )}
-    </ThemeContext.Consumer>
+    <button ref={buttonRef} {...buttonProps} className={className} style={style}>
+      <AnimatePresence mode="wait">
+        {isLoading ? (
+          <React.Fragment key="loading">
+            <motion.span {...transitions} className={spinnerWrapper}>
+              <FiLoader className={spinner} />
+            </motion.span>
+            <span className={spaceKeeper}>{children}</span>
+          </React.Fragment>
+        ) : (
+          <motion.span key="content" {...transitions}>
+            {children}
+          </motion.span>
+        )}
+      </AnimatePresence>
+    </button>
   );
 };
 

@@ -1,15 +1,39 @@
-import { withThemes } from 'storybook-addon-themes/react';
+import { createVar, style } from '@vanilla-extract/css';
+import { assignInlineVars } from '@vanilla-extract/dynamic';
+import { useEffect, useState } from 'react';
 import { withReactContext } from 'storybook-react-context';
 
-// import CrumbsProvider from '../src/components/CrumbsProvider';
 import CrumbsProvider from '../src/components/CrumbsProvider';
-import { darkTheme } from '../src/theme/dark';
-import { lightTheme } from '../src/theme/light';
+import { background, backgroundColor } from './styles';
+
+function withColorScheme(Story, context) {
+  const { scheme } = context.globals;
+  const [theme, setTheme] = useState(scheme);
+
+  useEffect(() => {
+    setTheme(scheme);
+  }, [scheme]);
+
+  if (theme === 'dark') {
+    return (
+      <div className={background} style={assignInlineVars({ [backgroundColor]: '#333' })}>
+        <CrumbsProvider theme={theme} setTheme={setTheme}>
+          <Story />
+        </CrumbsProvider>
+      </div>
+    );
+  }
+
+  return (
+    <div className={background} style={assignInlineVars({ [backgroundColor]: '#fff' })}>
+      <CrumbsProvider theme={theme} setTheme={setTheme}>
+        <Story />
+      </CrumbsProvider>
+    </div>
+  );
+}
 
 export const parameters = {
-  darkMode: {
-    current: 'light',
-  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
@@ -17,22 +41,20 @@ export const parameters = {
       date: /Date$/,
     },
   },
-
-  themes: {
-    default: 'dark',
-    list: [
-      { name: 'light', class: lightTheme, color: '#fff', classTarget: 'html' },
-      { name: 'dark', class: darkTheme, color: '#363636', classTarget: 'html' },
-    ],
-  },
 };
 
-export const decorators = [
-  Story => (
-    <CrumbsProvider theme={darkTheme}>
-      <Story />
-    </CrumbsProvider>
-  ),
-  withThemes,
-  withReactContext,
-];
+export const decorators = [withColorScheme, withReactContext];
+
+// these are types for theme changer
+export const globalTypes = {
+  scheme: {
+    name: 'Scheme',
+    description: 'Select light or dark theme',
+    defaultValue: 'light',
+    toolbar: {
+      icon: 'mirror',
+      items: ['light', 'dark'],
+      dynamicTitle: true,
+    },
+  },
+};

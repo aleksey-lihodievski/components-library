@@ -1,4 +1,3 @@
-// import { PressEvent } from '@react-types/shared';
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import React from 'react';
 
@@ -44,6 +43,12 @@ export default {
 } as ComponentMeta<typeof Button>;
 
 const Template: ComponentStory<typeof Button> = args => {
+  // const { toggleTheme } = useTheme();
+  //
+  // const handlePress = () => {
+  //   toggleTheme();
+  // };
+  //
   return <Button {...args} />;
 };
 

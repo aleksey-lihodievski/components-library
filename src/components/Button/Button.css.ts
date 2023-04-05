@@ -55,7 +55,7 @@ export const buttonColor = styleVariants({
 
       selectors: {
         '&:focus:not(:hover), &:hover:not(:focus)': {
-          background: vars.grayLight,
+          background: vars.gray.light,
         },
       },
     },
@@ -63,11 +63,11 @@ export const buttonColor = styleVariants({
 
   primary: [
     {
-      background: vars.primaryMain,
+      background: vars.primary.main,
 
       selectors: {
         '&:focus:not(:hover), &:hover:not(:focus)': {
-          background: vars.primaryLight,
+          background: vars.primary.light,
         },
       },
     },
@@ -75,11 +75,11 @@ export const buttonColor = styleVariants({
 
   secondary: [
     {
-      background: vars.secondaryMain,
+      background: vars.secondary.main,
 
       selectors: {
         '&:focus:not(:hover), &:hover:not(:focus)': {
-          background: vars.secondaryLight,
+          background: vars.secondary.light,
         },
       },
     },
@@ -87,11 +87,11 @@ export const buttonColor = styleVariants({
 
   danger: [
     {
-      background: vars.errorMain,
+      background: vars.error.main,
 
       selectors: {
         '&:focus:not(:hover), &:hover:not(:focus)': {
-          background: vars.errorLight,
+          background: vars.error.light,
         },
       },
     },
@@ -99,11 +99,11 @@ export const buttonColor = styleVariants({
 
   warning: [
     {
-      background: vars.warningMain,
+      background: vars.warning.main,
 
       selectors: {
         '&:focus:not(:hover), &:hover:not(:focus)': {
-          background: vars.warningLight,
+          background: vars.warning.light,
         },
       },
     },
